@@ -30,12 +30,6 @@ class HTTPRequest(BaseHTTPRequestHandler):
         self.error_code = code
 
 
-class HTTPResponse:
-    def __init__(self, code: int, message: str):
-        self.code = code
-        self.message = message
-
-
 class BasicAuth(namedtuple('BasicAuth', ['login', 'password', 'encoding'])):
     """Http basic authentication helper."""
 
