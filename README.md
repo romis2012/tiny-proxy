@@ -7,6 +7,11 @@ It is used for testing [python-socks](https://github.com/romis2012/python-socks)
 - Python >= 3.7
 - anyio>=3.6.1
 
+## Installation
+```
+pip install tiny-proxy
+```
+
 ## Usage
 
 ```python
