@@ -1,4 +1,3 @@
-import asyncio
 import ssl
 
 import pytest
@@ -22,7 +21,7 @@ from tests.config import (
     TEST_HTTPS_PORT_IPV6,
 )
 from tests.http_server import HttpServerConfig, HttpServer
-from tests.proxy_server import ProxyConfig, ProxyServer, ProxyServerRunner
+from tests.proxy_server import ProxyConfig, ProxyServerRunner
 from tests.utils import wait_until_connectable
 
 

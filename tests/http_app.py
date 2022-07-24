@@ -28,5 +28,5 @@ def run_app(
         host=host,
         port=port,
         ssl_context=ssl_context,
-        print=False,  #  type: ignore
+        print=False,  # type: ignore
     )
