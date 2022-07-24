@@ -8,7 +8,7 @@ from setuptools import setup
 
 def get_version():
     here = os.path.dirname(os.path.abspath(__file__))
-    filename = os.path.join(here, 'aiohttp_serve', '__init__.py')
+    filename = os.path.join(here, 'tiny_proxy', '__init__.py')
     contents = open(filename).read()
     pattern = r"^__version__ = '(.*?)'$"
     return re.search(pattern, contents, re.MULTILINE).group(1)
@@ -20,24 +20,26 @@ def get_long_description():
 
 
 if sys.version_info < (3, 7):
-    raise RuntimeError('aiohttp_serve requires Python 3.7+')
+    raise RuntimeError('tiny-proxy requires Python 3.7+')
 
 
 setup(
-    name='aiohttp_serve',
+    name='tiny_proxy',
     author='Roman Snegirev',
     author_email='snegiryev@gmail.com',
     version=get_version(),
     license='Apache 2',
-    url='https://github.com/romis2012/aiohttp-serve',
-    description='Multiprocessing based aiohttp application runner',
+    url='https://github.com/romis2012/tiny-proxy',
+    description='Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP tunnel)',
     long_description=get_long_description(),
     long_description_content_type='text/markdown',
     packages=[
-        'aiohttp_serve',
+        'tiny_proxy',
+        'tiny_proxy._proxy',
+        'tiny_proxy._handlers',
     ],
-    keywords='asyncio aiohttp multiprocessing supervisor',
+    keywords='socks socks5 socks4 http proxy server asyncio trio anyio',
     install_requires=[
-        'aiohttp>=3.7.4',
+        'anyio>=3.6.1,<4.0.0',
     ],
 )
