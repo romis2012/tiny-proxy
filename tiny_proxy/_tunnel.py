@@ -18,7 +18,10 @@ async def create_tunnel(endpoint1: SocketStream, endpoint2: SocketStream):
 
                 try:
                     await writer.send(data)
-                except (anyio.ClosedResourceError, anyio.BrokenResourceError):
+                except (
+                    anyio.ClosedResourceError,
+                    anyio.BrokenResourceError,
+                ):
                     break
         finally:
             await writer.aclose()

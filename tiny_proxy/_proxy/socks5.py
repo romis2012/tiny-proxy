@@ -88,7 +88,9 @@ class Socks5Proxy(AbstractProxy):
                 f'Connection reset by peer {self.stream.getpeername()}'
             ) from e
 
-        self.logger.info('CONNECT {}:{}'.format(remote_host, remote_port))
+        local_addr = self.stream.getsockname()
+        remote_addr = (remote_host, remote_port)
+        self.logger.info('CONNECT {} -> {}'.format(local_addr, remote_addr))
 
         try:
             # todo: add timeout?

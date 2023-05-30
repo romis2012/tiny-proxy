@@ -29,7 +29,11 @@ class SocketStream:
     async def aclose(self):
         if not self._closing:
             self._closing = True
-            await self._buffered.aclose()
+            try:
+                # underlying TLSStream.aclose() -> TLSStream.unwrap()
+                await self._buffered.aclose()
+            except (anyio.BrokenResourceError, anyio.BusyResourceError):
+                pass
 
     def getpeername(self):
         return self._stream.extra(anyio.abc.SocketAttribute.remote_address, '')
