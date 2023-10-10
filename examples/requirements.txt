@@ -1,0 +1,2 @@
+tiny-proxy>=0.2.0
+PyYAML>=3.12

@@ -1,0 +1,20 @@
+proxies:
+  - proxy_type: socks5
+    host: 0.0.0.0
+    port: 7781
+    username: user
+    password: password
+  - proxy_type: socks4
+    host: 0.0.0.0
+    port: 7772
+  - proxy_type: http
+    host: 0.0.0.0
+    port: 7770
+    username: user
+    password: password
+  - proxy_type: http
+    host: 0.0.0.0
+    port: 7774
+    username: user
+    password: password
+    ssl_cert: ['./cert/server.pem', './cert/server.key']
