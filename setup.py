@@ -40,6 +40,6 @@ setup(
     ],
     keywords='socks socks5 socks4 http proxy server asyncio trio anyio',
     install_requires=[
-        'anyio>=3.6.1,<4.0.0',
+        'anyio>=3.6.1,<5.0',
     ],
 )
