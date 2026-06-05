@@ -1,10 +1,59 @@
-[tool.black]
-line-length = 99
-target-version = ['py37', 'py38', 'py39']
-skip-string-normalization = true
-# experimental-string-processing = true
-preview = true
-verbose = true
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'tiny-proxy'
+license = { text = 'Apache-2.0' }
+description = 'Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP CONNECT)'
+readme = 'README.md'
+authors = [{ name = 'Roman Snegirev', email = 'snegiryev@gmail.com' }]
+keywords = [
+    'socks',
+    'socks5',
+    'socks4',
+    'http',
+    'proxy',
+    'proxy server',
+    'asyncio',
+    'trio',
+    'anyio',
+]
+requires-python = ">=3.8.0"
+dependencies = ['anyio>=3.6.1,<5.0.0']
+dynamic = ['version']
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Internet :: WWW/HTTP",
+    "Intended Audience :: Developers",
+    "Framework :: AnyIO",
+    "Framework :: AsyncIO",
+    "Framework :: Trio",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+[project.urls]
+homepage = 'https://github.com/romis2012/tiny-proxy'
+repository = 'https://github.com/romis2012/tiny-proxy'
+
+[tool.setuptools.dynamic]
+version = { attr = 'tiny_proxy.__version__' }
+
+[tool.setuptools.packages.find]
+include = ['tiny_proxy*']
 
 [tool.pytest.ini_options]
 asyncio_mode = 'strict'
